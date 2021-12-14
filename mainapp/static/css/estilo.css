@@ -1,0 +1,151 @@
+/* GLOBAL CLASSES */
+:root {
+    --header-bg-color: #081828;
+}
+
+.justify-content-end {
+    justify-content: flex-end !important;
+}
+
+.button .btn {
+    padding: 10px 40px;
+    border-radius: 5px;
+}
+
+/* HEADER */
+.header {
+    background: var(--header-bg-color);
+    position: relative;
+}
+
+.navbar-area.sticky {
+    background:var(--bs-white);
+}
+
+/*  HERO AREA */
+.hero-area .hero-content {
+    padding: 100px 0 45px;
+}
+
+.btn.mi-btn {
+    width: 453px;
+    height: 45px;
+    background: #2D2D42;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 13px;
+}
+
+.header.button.btn.login{
+    background-color: #2d2d42;
+    color: #f9fafb;
+    font-weight: 500;
+}
+
+/* VIDEO AREA */
+.intro-video-area .inner-content .shape2 {
+    height: 528px;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+}
+
+span.wow.zoomIn .color{
+    color: #081828;
+}
+
+.meta-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+button.portfolio-btn.redondo {
+    border-radius: 20px;
+}
+
+.portfolio-img img {
+    width: 100%;
+    height: 200px;
+}
+
+.portfolio-item-wrapper .portfolio-overlay {
+    background-color: #ffffff54;
+}
+
+.hero-area {
+    position: relative;
+    background-image: url("../images/\(5\).jpg"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #081828;
+    z-index: 0;
+}
+
+/* .header .navbar-brand img {
+    width: 105px;
+    height: 95px;
+} */
+
+.section-title h2 {
+   text-transform: none;    
+}
+
+a.btn.boton-pequenio-blog {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 10px !important;
+}
+
+.team .single-team img {
+    height: 213px;
+    width: 213px;
+}
+
+.hero-content-bg {
+    background: #afacac54;
+}
+
+.blog {
+    background-color: #ffffff5c;
+}
+
+.single-blog-grid .blog-img {
+    height: 266px;
+}
+
+.intro-video-area::before {
+    background-color: #081828;
+   
+}
+
+.section {
+     background-color: #081828;
+       
+}
+
+.blog-section {
+    background-color: #081828;
+}
+
+.cambio-gris {
+    background-color: #33393e;
+    color: #dee2e6;
+}
+
+.cambiar-negro {
+    background-color: #081828;
+}
+
+.cambiar-fondo {
+    background-color: #081828;
+}
+
+.cam-color{
+    color:#f9fafb
+
+}
+
+.team .single-team img {
+    background-color: #081828;
+    border: 1px solid #081828;
+}
