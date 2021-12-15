@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<title>Craft - Startup Landing Page Template.</title>
+<title>Think Green | Inicio</title>
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.svg' %}" />
@@ -54,31 +54,28 @@
                 <a href="{% url 'home' %}" class="active" aria-label="Toggle navigation">Home</a>
             </li>
             <li class="nav-item">
-                <a href="about-us.html" aria-label="Toggle navigation">About</a>
-            </li>
-            <li class="nav-item">
                 <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
                     data-bs-target="#submenu-1-1" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">Pages</a>
+                    aria-label="Toggle navigation">Account</a>
                 <ul class="sub-menu collapse" id="submenu-1-1">
-                    <li class="nav-item"><a href="about-us.html">About Us</a></li>
+                    {% if user.is_authenticated %}
                     <li class="nav-item"><a href="{% url 'logout' %}">logout</a></li>
+                    {% else %}
                     <li class="nav-item"><a href="{% url 'login' %}">Sign In</a></li>
-
                     <li class="nav-item"><a href="{% url 'register' %}">Sign Up</a></li>
+                    {% endif %}
                 </ul>
             </li>
             <li class="nav-item">
+                {% if user.is_superuser %}
                 <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
-                    data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">Edit Blog</a>
+                data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">Edit Blog</a>
                 <ul class="sub-menu collapse" id="submenu-1-2">
                     <li class="nav-item"><a href="{% url 'add_post' %}">Add Post</a>
                     </li>
                 </ul>
-            </li>
-            <li class="nav-item">
-                <a href="contact.html" aria-label="Toggle navigation">Contact</a>
+                {% endif %}
             </li>
         </ul>
     </div>
@@ -446,9 +443,9 @@
 </div>
 <div class="col-lg-6 col-md-5 col-12">
 <div class="button">
-<a href="pricing.html" class="btn">Get started
+<a href="https://www.un.org/es/actnow/" class="btn">Act Now
 </a>
-<a href="about-us.html" class="btn btn-alt">Learn More
+<a href="https://www.un.org/sustainabledevelopment/es/" class="btn btn-alt">Learn More
 </a>
 </div>
 </div>
@@ -518,7 +515,7 @@
 <p>Suscríbete y recibe las ultímas actualizaciones
 </p>
 <form action="#" method="get" target="_blank" class="newsletter-form">
-<input name="EMAIL" placeholder="Email address" required="required" type="email">
+<input name="EMAIL" placeholder="Email address" type="email">
 <div class="button">
 <button class="sub-btn"><i class="lni lni-envelope"></i>
 </button>
@@ -541,7 +538,7 @@
 <p class="copyright-text">© 2021 Craft - All Rights Reserved</p>
 </div>
 <div class="col-lg-6 col-md-6 col-12">
-<p class="copyright-owner">Designed and Developed by <a href="https://graygrids.com/" rel="nofollow" target="_blank">GrayGrids</a>
+<p class="copyright-owner">Designed and Developed by Equipo 8</a>
 </div>
 </div>
 </div>

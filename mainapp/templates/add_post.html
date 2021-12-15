@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<title>Craft - Startup Landing Page Template.</title>
+<title>Think Green | Inicio</title>
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.svg' %}" />
@@ -54,42 +54,41 @@
                 <a href="{% url 'home' %}" class="active" aria-label="Toggle navigation">Home</a>
             </li>
             <li class="nav-item">
-                <a href="about-us.html" aria-label="Toggle navigation">About</a>
-            </li>
-            <li class="nav-item">
                 <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
                     data-bs-target="#submenu-1-1" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">Pages</a>
+                    aria-label="Toggle navigation">Account</a>
                 <ul class="sub-menu collapse" id="submenu-1-1">
-                    <li class="nav-item"><a href="about-us.html">About Us</a></li>
-                    <li class="nav-item"><a href="pricing.html">Our Pricing</a></li>
-                    <li class="nav-item"><a href="signin.html">Sign In</a></li>
-
-                    <li class="nav-item"><a href="signup.html">Sign Up</a></li>
-                    <li class="nav-item"><a href="reset-password.html">Reset Password</a>
-                    <li class="nav-item"><a href="mail-success.html">Mail Success</a></li>
-                    <li class="nav-item"><a href="404.html">404 Error</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a href="{% url 'logout' %}">logout</a></li>
+                    {% else %}
+                    <li class="nav-item"><a href="{% url 'login' %}">Sign In</a></li>
+                    <li class="nav-item"><a href="{% url 'register' %}">Sign Up</a></li>
+                    {% endif %}
                 </ul>
             </li>
             <li class="nav-item">
+                {% if user.is_superuser %}
                 <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
-                    data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">Blog</a>
+                data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">Edit Blog</a>
                 <ul class="sub-menu collapse" id="submenu-1-2">
-                    <li class="nav-item"><a href="blog-grid.html">Blog Grid</a>
+                    <li class="nav-item"><a href="{% url 'add_post' %}">Add Post</a>
                     </li>
-                    <li class="nav-item"><a href="blog-single.html">Blog Single</a></li>
                 </ul>
-            </li>
-            <li class="nav-item">
-                <a href="contact.html" aria-label="Toggle navigation">Contact</a>
+                {% endif %}
             </li>
         </ul>
     </div>
     <!--login-->
+    {% if user.is_authenticated %}
     <div class="button">
-        <a href="signup.html" class="btn login">Login</a>
+        <a href="{% url 'logout' %}" class="btn login">Logout</a>
     </div>
+    {% else %}
+    <div class="button">
+        <a href="{% url 'login' %}" class="btn login">Login</a>
+    </div>
+    {% endif %}
     <div class="button">
         <a href="signup.html" class="btn btn-sm light-theme boton-pequenio-blog">
             <i class="lni lni-sun"></i>
@@ -102,6 +101,9 @@
 </div> 
 </div> 
 </header>
+
+
+
 <h1> Add New Post </h1>
     <div class="mb-3">
         <form method='POST' enctype='multipart/form-data'>
@@ -173,7 +175,7 @@
     <p>Suscríbete y recibe las ultímas actualizaciones
     </p>
     <form action="#" method="get" target="_blank" class="newsletter-form">
-    <input name="EMAIL" placeholder="Email address" required="required" type="email">
+    <input name="EMAIL" placeholder="Email address" type="email">
     <div class="button">
     <button class="sub-btn"><i class="lni lni-envelope"></i>
     </button>
@@ -196,7 +198,7 @@
     <p class="copyright-text">© 2021 Craft - All Rights Reserved</p>
     </div>
     <div class="col-lg-6 col-md-6 col-12">
-    <p class="copyright-owner">Designed and Developed by <a href="https://graygrids.com/" rel="nofollow" target="_blank">GrayGrids</a>
+    <p class="copyright-owner">Designed and Developed by Equipo 8</a>
     </div>
     </div>
     </div>
@@ -205,63 +207,63 @@
     
     </footer>
     
-
-<a href="#" class="scroll-top">
-<i class="lni lni-chevron-up"></i>
-</a>
-
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/wow.min.js' %}"></script>
-<script src="{% static 'js/tiny-slider.js' %}"></script>
-<script src="{% static 'js/glightbox.min.js' %}"></script>
-<script src="{% static 'js/count-up.min.js' %}"></script>
-<script src="{% static 'js/imagesloaded.min.js' %}"></script>
-<script src="{% static 'js/isotope.min.js' %}"></script>
-<script src="{% static 'js/main.js' %}"></script>
-<script>
-        //====== counter up 
-        var cu = new counterUp({
-            start: 0,
-            duration: 2000,
-            intvalues: true,
-            interval: 100,
-            append: " ",
-        });
-        cu.start();
-
-        //========= glightbox
-        GLightbox({
-            'href': 'https://www.youtube.com/watch?v=345IxGgjF9s',
-            'type': 'video',
-            'source': 'youtube', //vimeo, youtube or local
-            'width': 900,
-            'autoplayVideos': true,
-        });
-
-        //============== isotope masonry js with imagesloaded
-        imagesLoaded('#container', function () {
-            var elem = document.querySelector('.grid');
-            var iso = new Isotope(elem, {
-                // options
-                itemSelector: '.grid-item',
-                masonry: {
-                    // use outer width of grid-sizer for columnWidth
-                    columnWidth: '.grid-item'
-                }
+    
+    <a href="#" class="scroll-top">
+    <i class="lni lni-chevron-up"></i>
+    </a>
+    
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/tiny-slider.js' %}"></script>
+    <script src="{% static 'js/glightbox.min.js' %}"></script>
+    <script src="{% static 'js/count-up.min.js' %}"></script>
+    <script src="{% static 'js/imagesloaded.min.js' %}"></script>
+    <script src="{% static 'js/isotope.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script>
+            //====== counter up 
+            var cu = new counterUp({
+                start: 0,
+                duration: 2000,
+                intvalues: true,
+                interval: 100,
+                append: " ",
             });
-
-            let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
-            filterButtons.forEach(e =>
-                e.addEventListener('click', () => {
-
-                    let filterValue = event.target.getAttribute('data-filter');
-                    iso.arrange({
-                        filter: filterValue
-                    });
-                })
-            );
-        });
-
-    </script>
-</body>
-</html>
+            cu.start();
+    
+            //========= glightbox
+            GLightbox({
+                'href': 'https://www.youtube.com/watch?v=345IxGgjF9s',
+                'type': 'video',
+                'source': 'youtube', //vimeo, youtube or local
+                'width': 900,
+                'autoplayVideos': true,
+            });
+    
+            //============== isotope masonry js with imagesloaded
+            imagesLoaded('#container', function () {
+                var elem = document.querySelector('.grid');
+                var iso = new Isotope(elem, {
+                    // options
+                    itemSelector: '.grid-item',
+                    masonry: {
+                        // use outer width of grid-sizer for columnWidth
+                        columnWidth: '.grid-item'
+                    }
+                });
+    
+                let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+                filterButtons.forEach(e =>
+                    e.addEventListener('click', () => {
+    
+                        let filterValue = event.target.getAttribute('data-filter');
+                        iso.arrange({
+                            filter: filterValue
+                        });
+                    })
+                );
+            });
+    
+        </script>
+    </body>
+    </html>

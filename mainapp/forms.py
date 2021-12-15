@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post
+from .models import Comment, Post
 
 
 class PostForm(forms.ModelForm): #Esta clase nos permite crear nuestro propio formulario
@@ -24,4 +24,13 @@ class EditForm(forms.ModelForm):
             'category': forms.TextInput(attrs={'class':'form-control'}),
             'body': forms.Textarea(attrs={'class':'form-control'}),
             'preview': forms.Textarea(attrs={'class':'form-control'})
+        }
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('name','body')
+        widgets = {
+            'name': forms.TextInput(attrs={'class':'form-control'}),
+            'body': forms.Textarea(attrs={'class':'form-control'}),
         }

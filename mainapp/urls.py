@@ -15,13 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import HomeView, ArticleDetailView, AddPostView, UpdatePostView, DeletePostView
+from .views import HomeView, ArticleDetailView, AddPostView, UpdatePostView, DeletePostView, AddCommentView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", HomeView.as_view(), name="home"),
     path("article/<int:pk>", ArticleDetailView.as_view(), name="article"),
     path("add-post/", AddPostView.as_view(), name="add_post"),
-    path("edit-post/<int:pk>", UpdatePostView.as_view(), name="edit_post"),
-    path("delete-post/<int:pk>", DeletePostView.as_view(), name="delete_post"),
+    path("edit-post/<int:pk>/", UpdatePostView.as_view(), name="edit_post"),
+    path("delete-post/<int:pk>/", DeletePostView.as_view(), name="delete_post"),
+    path("article/<int:pk>/comment/", AddCommentView.as_view(), name="add_comment"),
 ]

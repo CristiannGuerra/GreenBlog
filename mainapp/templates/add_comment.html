@@ -104,33 +104,15 @@
 
 
 
-<h1> {{post.title}} </h1>
-<small> By: {{post.author.first_name}} {{post.author.last_name}} </small><br><br>
-<img src="{{post.header_image.url}}"><br>
-<p> {{post.body|safe}} </p><br><br>
-<h3> Comments... </h3>
-<hr>
+<h1> Add Comment </h1>
+    <div class="mb-3">
+        <form method='POST'>
+            {% csrf_token %}
+            {{form.as_p}}
+        <button class="btn btn-secondary">Add Comment</button>
+    </div>
 <br>
 <br>
-{% if not post.comments.all %}
-    <h5> No Comments Yet ... </h5><br>
-    <a href="{% url 'add_comment' post.pk %}"> Add comment </a>
-{% else %}
-    {% for comment in post.comments.all %}
-        <strong> 
-            {{comment.name}} - {{comment.date_added}} 
-        </strong>
-        <br>
-        {{comment.body}}
-        <br>
-        <br>
-    {% endfor %}
-    <a href="{% url 'add_comment' post.pk %}"> Add comment </a>
-{% endif %}
-<br>
-<br>
-
-
 
 <footer class="footer section">
 
