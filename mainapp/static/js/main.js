@@ -26,10 +26,10 @@ Author: GrayGrids
         var logo = document.querySelector('.navbar-brand img')
         if (window.pageYOffset > sticky) {
           header_navbar.classList.add("sticky");
-          logo.src = "{% static 'static = images/logo/PIENSA VERDE LOGO.svg' %}";
+          logo.src = "static/images/logo/PIENSA VERDE LOGO.svg";
         } else {
           header_navbar.classList.remove("sticky");
-          logo.src = "{% static 'static = images/logo/PIENSA VERDE LOGO.svg' %}";
+          logo.src = "static/images/logo/PIENSA VERDE LOGO.svg";
         }
 
         // show or hide the back-top-top button

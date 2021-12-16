@@ -298,7 +298,7 @@
 
 <div class="single-blog-grid">
 <div class="blog-img">
-<a href="blog-single.html">
+<a href="{% url 'article' post.pk %}">
 <img src=" {{post.header_image.url}} " alt="#">
 </a>
 </div>

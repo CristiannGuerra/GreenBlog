@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<title>Think Green | Inicio</title>
+<title>Think Green | Article</title>
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.svg' %}" />
@@ -106,6 +106,10 @@
 
 <h1> {{post.title}} </h1>
 <small> By: {{post.author.first_name}} {{post.author.last_name}} </small><br><br>
+{% if user.is_superuser %}
+<a href="{% url 'edit_post' post.pk %}"><b>Edit</b></a> | 
+<a href="{% url 'delete_post' post.pk %}"><b>Delete</b></a>
+{% endif %}
 <img src="{{post.header_image.url}}"><br>
 <p> {{post.body|safe}} </p><br><br>
 <h3> Comments... </h3>
@@ -125,7 +129,9 @@
         <br>
         <br>
     {% endfor %}
+    {% if user.is_authenticated %}
     <a href="{% url 'add_comment' post.pk %}"> Add comment </a>
+    {% endif %}
 {% endif %}
 <br>
 <br>

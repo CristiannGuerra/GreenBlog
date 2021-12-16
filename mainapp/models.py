@@ -33,4 +33,4 @@ class Comment(models.Model):
         return '%s - %s' % (self.post.title, self.name)
     
     def get_absolute_url(self):
-        return reverse('home')
+        return reverse('article', args=str(self.post.id) )

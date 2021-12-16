@@ -1,6 +1,4 @@
 from django.db import models
-from django.db.models import fields
-from django.db.models.expressions import OrderBy
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post, Comment
@@ -31,13 +29,13 @@ class UpdatePostView(UpdateView):
 class DeletePostView(DeleteView):
     model = Post
     template_name = 'delete_post.html'
-    succes_url = reverse_lazy('home')
+    success_url = reverse_lazy('home')
 
 class AddCommentView(CreateView):
     model = Comment
     template_name = 'add_comment.html'
     form_class = CommentForm
-    succes_url = reverse_lazy('home')
+    succes_url = reverse_lazy('')
     ordering = ["-date_added"]
 
     def form_valid(self,form):
