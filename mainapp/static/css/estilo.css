@@ -25,6 +25,7 @@
 /*  HERO AREA */
 .hero-area .hero-content {
     padding: 100px 0 45px;
+
 }
 
 .btn.mi-btn {
@@ -99,10 +100,11 @@ a.btn.boton-pequenio-blog {
 .team .single-team img {
     height: 213px;
     width: 213px;
+    padding: 0 !important;
 }
 
 .hero-content-bg {
-    background: #afacac54;
+    background: #081828c9;
 }
 
 .blog {
@@ -113,18 +115,8 @@ a.btn.boton-pequenio-blog {
     height: 266px;
 }
 
-.intro-video-area::before {
-    background-color: #081828;
-   
-}
-
-.section {
-     background-color: #081828;
-       
-}
-
-.blog-section {
-    background-color: #081828;
+.section, .intro-video-area::before, .blog-section {
+    background-color: #081828;   
 }
 
 .cambio-gris {
@@ -140,12 +132,165 @@ a.btn.boton-pequenio-blog {
     background-color: #081828;
 }
 
-.cam-color{
-    color:#f9fafb
-
+.cam-color, h1, h2, h3, h4, h5, h6{
+    color:#727272;
 }
 
 .team .single-team img {
     background-color: #081828;
     border: 1px solid #081828;
+}
+
+
+.col-lg-3 {
+    flex: 1 0 auto;
+   
+}
+
+
+/* ESTILOS PAGINA DE POST */
+
+
+.hero-area.articulo {
+    background-image: url("https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production+Library/20-05-2020_UNDP_Uruguay.jpg/image1170x530cropped.jpg"); 
+    
+}
+
+
+/* desarrollo */
+section.posteo {
+    padding-top: 20px;
+    background-color: #081828;
+}
+
+/* Author Info */
+.autor-perfil {
+    display: flex;
+    align-items: center;
+    background-color: #081828;
+
+}
+
+.autor{
+    background-color: #081828;
+}
+
+.autor .content .fullname {
+    color: #FFFFFF  !important;
+}
+
+.autor .social {
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.autor .autor-perfil img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color:#081828;
+    border: 1px solid #eee;
+}
+
+.autorpost {
+position: absolute;
+width: 411.18px;
+height: 126px;
+left: 276px;
+top: 1469px;
+}
+
+/* Seccion Comentarios */
+section.comentarios {
+    padding-top: 40px;
+    background-color: #081828;
+}
+
+.comentario {
+    margin-bottom: 20px;
+}
+
+.comentario-container {
+    padding: 15px;
+    display: flex;
+    background: #C4C4C4;
+}
+
+.comentarios-title {
+    color: var(--header-bg-color) !important;
+    padding-bottom: 20px;
+}
+
+.comentario-area.escribir-comenaterio {
+    width: 100%;
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comentario .avatar img {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid #eee;
+}
+
+button.reply-btn, button.like-btn {
+    background: transparent;
+    border: 0;
+    padding: 0 5px;
+    font-size: 20px;
+}
+
+button.reply-btn:hover, button.like-btn:hover {
+    background: #081828;
+    color: white;
+}
+
+.comentario-textarea {
+    width: 100%;
+    height: 100px;
+}
+
+.cambio-colorblack{
+    background-color: #081828;
+}
+
+.footer-top {
+    background-color: #33393e;
+    padding: 20px 0;
+}
+
+.footer {
+    padding-top: 0;
+}
+
+.footer .copyright-area {
+    background-color: #33393e;
+}
+.footer .copyright-area .inner-content {
+    margin-top: 0;
+}
+
+
+
+.luminoso, .luminoso .intro-video-area::before{
+    background-color: #fff !important;
+}
+
+/*CATEGORY*/
+
+.breadcrumbs {
+    background-image: url("../images/\(5\).jpg");    
+}
+
+.single-blog-grid {
+    max-height: 753px;
 }
