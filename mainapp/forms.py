@@ -1,5 +1,12 @@
 from django import forms
-from .models import Comment, Post
+from .models import Comment, Post, Category
+
+categories = Category.objects.all().values_list('name', 'name') #name porque le dimos ese nombre en models
+
+categories_list = []
+
+for category in categories:
+    categories_list.append(category)
 
 
 class PostForm(forms.ModelForm): #Esta clase nos permite crear nuestro propio formulario
@@ -8,8 +15,8 @@ class PostForm(forms.ModelForm): #Esta clase nos permite crear nuestro propio fo
         fields = ('title', 'author', 'category', 'preview', 'body', 'tag', 'header_image') #Deben ser las mismas que tenemos definidas en nuestro modelo
         widgets = {
             'title': forms.TextInput(attrs={'class':'form-control'}),
-            'author': forms.Select(attrs={'class':'form-control'}),
-            'category': forms.TextInput(attrs={'class':'form-control'}),
+            'author': forms.TextInput(attrs={'class':'form-control'}),
+            'category': forms.Select(choices = categories_list, attrs={'class':'form-control'}),
             'preview': forms.Textarea(attrs={'class':'form-control'}),
             'body': forms.Textarea(attrs={'class':'form-control'}),
             'tag': forms.TextInput(attrs={'class':'form-control'}),
@@ -21,7 +28,7 @@ class EditForm(forms.ModelForm):
         fields = ('title','category', 'preview', 'body', 'header_image') #Deben ser las mismas que tenemos definidas en nuestro modelo
         widgets = {
             'title': forms.TextInput(attrs={'class':'form-control'}),
-            'category': forms.TextInput(attrs={'class':'form-control'}),
+            'category': forms.Select(choices = categories_list, attrs={'class':'form-control'}),
             'body': forms.Textarea(attrs={'class':'form-control'}),
             'preview': forms.Textarea(attrs={'class':'form-control'})
         }

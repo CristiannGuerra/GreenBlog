@@ -163,112 +163,17 @@
                 <div class="section-title">
                     <h3 class="wow zoomIn" data-wow-delay=".2s"></h3>
                     <h2 class="wow fadeInUp" data-wow-delay=".4s">Principales Tags</h2>
-                    <p class="wow fadeInUp" data-wow-delay=".6s">Elige cual te gusta y disfruta de tu post </p>
+                    <p class="wow fadeInUp" data-wow-delay=".6s">Elige la tematica que mas te guste y disfruta de tu post </p>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
                 <div class="portfolio-btn-wrapper wow fadeInUp" data-wow-delay=".4s">
-                    <button class="portfolio-btn redondo active" data-filter="*">Fin de la Pobreza</button>
-                    <button class="portfolio-btn redondo" data-filter=".branding">Hambre Cero</button>
-                    <button class="portfolio-btn redondo" data-filter=".marketing">Salud y Bienestar</button>
-                    <button class="portfolio-btn redondo" data-filter=".web">Educación de Calidad</button>
-                    <button class="portfolio-btn redondo" data-filter=".graphic">Igualdad de Género</button>
-                    <button class="portfolio-btn redondo" data-filter="*">Agua Limpia y Saneamiento</button>
-                    <button class="portfolio-btn redondo" data-filter=".branding">Energía Asequible y No Contaminante</button>
-                    <button class="portfolio-btn redondo" data-filter=".marketing">Industria Inovacion e Infraestructura</button>
-                    <button class="portfolio-btn redondo" data-filter=".web">Producción y Consumo Responsable</button>
-                    <button class="portfolio-btn redondo" data-filter=".graphic">Vida de Ecosistemas Terrestres</button>
-                    <button class="portfolio-btn redondo" data-filter="*">Trabajo Decente y Crecimiento Económico</button>
-                    <button class="portfolio-btn redondo" data-filter=".branding">Reducción de las Desigualdades</button>
-                    <button class="portfolio-btn redondo" data-filter=".marketing">Ciudades y Comunidades Sostenibles</button>
-                    <button class="portfolio-btn redondo" data-filter=".web">Alianzas para Lograr los Objetivos</button>
-                    <button class="portfolio-btn redondo" data-filter=".graphic">Acción por el Clima</button>
-                    <button class="portfolio-btn redondo" data-filter=".web">Paz Justicia e Instituciones Solidas</button>
-                    <button class="portfolio-btn redondo" data-filter=".graphic">Vida Submarina</button>
-                </div>
-            </div>
-        </div>
-        {% for post in object_list %}
-        <div class="row grid">
-            <div class="col-lg-4 col-md-6 grid-item branding marketing">
-                <div class="portfolio-item-wrapper">
-                    <div class="portfolio-img">
-                        <img src="https://i.pinimg.com/564x/ac/16/42/ac1642ffc44e80fc52248d8cbc215963.jpg" alt="">
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="overlay-content">
-                            <span> {{post.title}} </span>
-                            <h4> {{post.preview|safe}} </h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-            <div class="col-lg-4 col-md-6 grid-item marketing graphic">
-                <div class="portfolio-item-wrapper">
-                    <div class="portfolio-img">
-                        <img src="https://i.pinimg.com/564x/f9/09/e9/f909e9b13f13034823bd9fefa43f00a2.jpg" alt="">
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="overlay-content">
-                            <span>Comunidades </span>
-                            <h4>Packaging Design</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 grid-item branding">
-                <div class="portfolio-item-wrapper">
-                    <div class="portfolio-img">
-                        <img src="https://i.pinimg.com/564x/1d/a4/2a/1da42a71806ba305bb0098c6f1644033.jpg" alt="">
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="overlay-content">
-                            <span>Igualdad de Género</span>
-                            <h4>Product Branding</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 grid-item web">
-                <div class="portfolio-item-wrapper">
-                    <div class="portfolio-img">
-                        <img src="https://i.pinimg.com/564x/46/a3/7c/46a37c6400fa48bd51139e77822a85cd.jpg" alt="">
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="overlay-content">
-                            <span>Cambio Climatico</span>
-                            <h4>Beauty Care Web Apps</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 grid-item graphic">
-                <div class="portfolio-item-wrapper">
-                    <div class="portfolio-img">
-                        <img src="https://i.pinimg.com/564x/72/35/3d/72353d14994bc169faf88f76076db2a0.jpg" alt="">
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="overlay-content">
-                            <span>Salud y Bienestar</span>
-                            <h4>Mocup Design</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 grid-item web">
-                <div class="portfolio-item-wrapper">
-                    <div class="portfolio-img">
-                        <img src="https://i.pinimg.com/564x/d1/eb/6f/d1eb6f440a586bb44404d0cbdb9e1790.jpg" alt="">
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="overlay-content">
-                            <span>Educación </span>
-                            <h4>Mobile Apps Design</h4>
-                        </div>
-                    </div>
+                    {% for item in cat_menu %}
+                    <a href="{% url 'category' item|slugify %}" class="btn btn-primary btn-lg enable" tabindex="-1" role="button" aria-disabled="false">{{item}}</a>
+                    <!-- <button class="portfolio-btn redondo" tabindex="-1" role="button" aria-disabled="false" href="{% url 'category' item|slugify %}">{{item}}</button>-->
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -284,8 +189,8 @@
 <div class="row">
 <div class="col-12">
 <div class="section-title">
-<h3 class="wow zoomIn" data-wow-delay=".2s">TagsPlus</h3>
-<h2 class="wow fadeInUp cam-color" data-wow-delay=".4s">Los mas comentados</h2>
+<h3 class="wow zoomIn" data-wow-delay=".2s">Think Green</h3>
+<h2 class="wow fadeInUp cam-color" data-wow-delay=".4s">Ultimos Posteos</h2>
 <p class="wow fadeInUp" data-wow-delay=".6s">Descubrí los Posts de mayor interes
 </p>
 </div>

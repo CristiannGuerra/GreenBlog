@@ -1,7 +1,7 @@
 from django.db import models
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post, Comment
+from .models import Post, Comment, Category
 from .forms import PostForm, EditForm, CommentForm
 from django.urls import reverse_lazy
 
@@ -11,6 +11,12 @@ class HomeView(ListView):
     model = Post
     template_name = 'index.html'
     ordering = ['-id']
+
+    def get_context_data(self, *args, **kwargs):
+        cat_menu = Category.objects.all()
+        context = super(HomeView, self).get_context_data(*args, **kwargs)
+        context['cat_menu'] = cat_menu
+        return context
 
 class ArticleDetailView(DetailView):
     model = Post
@@ -41,3 +47,10 @@ class AddCommentView(CreateView):
     def form_valid(self,form):
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
+
+def CategoryView(request, category):
+    category_posts = Post.objects.filter(category=category.replace('-', ' '))
+    return render(request, 'category_view.html', {
+        'category':category.title().replace('-', ' '),
+        'category_posts':category_posts
+    } )

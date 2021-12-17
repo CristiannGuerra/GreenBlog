@@ -22,7 +22,8 @@ class Post(models.Model):
     
     def get_absolute_url(self):
         return reverse('home') #args=(str(self.id)))
-    
+
+
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)# Quiere decir que si un post es eliminado, sus comentarios tambien
     name = models.CharField(max_length=255)
@@ -34,3 +35,13 @@ class Comment(models.Model):
     
     def get_absolute_url(self):
         return reverse('article', args=str(self.post.id) )
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse('home')
