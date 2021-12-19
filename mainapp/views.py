@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post, Comment, Category
@@ -10,7 +11,7 @@ from django.urls import reverse_lazy
 class HomeView(ListView):
     model = Post
     template_name = 'index.html'
-    ordering = ['-id']
+    ordering = ['-post_date']
 
     def get_context_data(self, *args, **kwargs):
         cat_menu = Category.objects.all()
@@ -54,3 +55,30 @@ def CategoryView(request, category):
         'category':category.title().replace('-', ' '),
         'category_posts':category_posts
     } )
+
+def DateView(request, desc):
+    if desc=='desc':
+        date_posts = Post.objects.order_by('-post_date')
+    elif desc=='asc':
+        date_posts = Post.objects.order_by('post_date')
+    elif desc=='title-desc':
+        date_posts = Post.objects.order_by('-title')
+    elif desc=='title-asc':
+        date_posts = Post.objects.order_by('title')
+    elif desc=='author-desc':
+        date_posts = Post.objects.order_by('-author')
+    elif desc=='author-asc':
+        date_posts = Post.objects.order_by('author')
+    elif desc=='all':
+        date_posts = Post.objects.order_by('title')
+
+
+
+    return render(request, 'filtered_posts.html',{
+        'date_posts': date_posts
+    })
+
+
+'''podria cambiar DateView por un filtro llamado SortView(request,*args,**kwargs)
+el cual tome el argumento y lo pase como query dentro de order_by('algo')
+para eso tambien tendremos que modificar la url a path/<str:algo>'''

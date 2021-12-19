@@ -9,12 +9,12 @@ from ckeditor.fields import RichTextField
 class Post(models.Model):
     title = models.CharField(max_length=255)
     header_image = models.ImageField(null=True, blank=True, upload_to='images/')
-    tag = models.CharField(max_length=255)
+    tag = models.CharField(max_length=255, default='defatult tag')
     author = models.ForeignKey(User, on_delete=models.CASCADE) #on_delete elimina todas las publicaciones realizadas por User si el mismo es eliminado
     #body = models.TextField()
     body = RichTextField(blank=True, null=True)
     preview = RichTextField(blank=True, null=True) # O podemos usar un filtro en el html e.g. {{post.body|slice:'125'}}
-    post_date = models.DateField(auto_now_add=True)
+    post_date = models.DateTimeField(auto_now_add=True)
     category = models.CharField(max_length=255, default='uncategorized')
 
     def __str__(self):
