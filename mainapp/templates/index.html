@@ -77,6 +77,16 @@
                 </ul>
                 {% endif %}
             </li>
+            <li class="nav-item">
+                <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
+                    data-bs-target="#submenu-1-1" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">Posts</a>
+                <ul class="sub-menu collapse" id="submenu-1-1">
+                    <li class="nav-item"><a href='filtered-posts/all'>All</a></li>
+                    <li class="nav-item"><a href='filtered-posts/all'>Hottest</a></li>
+                    <li class="nav-item"><a href='filtered-posts/desc'>Newest</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
     <!--login-->
@@ -209,9 +219,9 @@
 </div>
 <div class="blog-content cambio-gris">
 <div class="meta-info">
-<span class="date" ><i class="lni lni-timer"></i> 23 Noviembre 2020
+<span class="date" ><i class="lni lni-timer"></i> {{post.post_date|date:'M d, Y'}}
 </span>
-<span class="author" ><i class="lni lni-user"></i> Pablo La Ros
+<span class="author" ><i class="lni lni-user"></i> {{post.author}}
 </span>
 </div>
 <h4>
@@ -512,3 +522,5 @@
     </script>
 </body>
 </html>
+
+<!--Nosotros hicimos así: posteos = post.objects.filter(comentario__contenido__contains=comentario_bus).distinct()-->

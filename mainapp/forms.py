@@ -1,4 +1,5 @@
 from django import forms
+from django.db.models.fields import BLANK_CHOICE_DASH
 from .models import Comment, Post, Category
 
 categories = Category.objects.all().values_list('name', 'name') #name porque le dimos ese nombre en models
@@ -25,9 +26,10 @@ class PostForm(forms.ModelForm): #Esta clase nos permite crear nuestro propio fo
 class EditForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title','category', 'preview', 'body', 'header_image') #Deben ser las mismas que tenemos definidas en nuestro modelo
+        fields = ('title','author', 'category', 'preview', 'body', 'header_image') #Deben ser las mismas que tenemos definidas en nuestro modelo
         widgets = {
             'title': forms.TextInput(attrs={'class':'form-control'}),
+            'author': forms.TextInput(attrs={'class':'form-control'}),
             'category': forms.Select(choices = categories_list, attrs={'class':'form-control'}),
             'body': forms.Textarea(attrs={'class':'form-control'}),
             'preview': forms.Textarea(attrs={'class':'form-control'})
