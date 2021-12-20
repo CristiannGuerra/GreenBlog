@@ -26,10 +26,10 @@ Author: GrayGrids
         var logo = document.querySelector('.navbar-brand img')
         if (window.pageYOffset > sticky) {
           header_navbar.classList.add("sticky");
-          logo.src = "static/images/logo/PIENSA VERDE LOGO.svg";
+          logo.src = location.origin + "/static/images/logo/think_green_logo.svg";
         } else {
           header_navbar.classList.remove("sticky");
-          logo.src = "static/images/logo/PIENSA VERDE LOGO.svg";
+          logo.src = location.origin + "/static/images/logo/think_green_logo.svg";
         }
 
         // show or hide the back-top-top button
@@ -53,17 +53,19 @@ Author: GrayGrids
     var $themeButton = document.querySelector('#theme-button'); // obtengo elemento boton
     var $sections = document.getElementsByClassName('section'); // obtengo el body de la lista de tags
     var $body = document.getElementsByTagName('body')[0];
+    var $backgroundDarkColor = '#081828';
+    var $backgroundLightColor = 'white';
     $themeButton.addEventListener('click', function () { // definir un evento
-        if ($sections[0].style.backgroundColor === 'white') { // si $body tiene la clase oscuro cambia a luminoso
+        if ($sections[0].style.backgroundColor === $backgroundLightColor) { // si $body tiene la clase oscuro cambia a luminoso
             $body.className = '';
         } else {
             $body.className = 'luminoso';
         }
         for (let i = 0; i < $sections.length; i++) {
-            if ($sections[i].style.backgroundColor === 'white') { // si $body tiene la clase oscuro cambia a luminoso
-                $sections[i].style.backgroundColor = '#081828'
+            if ($sections[i].style.backgroundColor === $backgroundLightColor) { // si $body tiene la clase oscuro cambia a luminoso
+                $sections[i].style.backgroundColor = $backgroundDarkColor
             } else {
-                $sections[i].style.backgroundColor = 'white' // sino que siga oscuro
+                $sections[i].style.backgroundColor = $backgroundLightColor // sino que siga oscuro
             }
         }
     })
