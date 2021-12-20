@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.aggregates import Count
 from django.db.models.query import QuerySet
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -87,6 +88,9 @@ def DateView(request, desc):
         date_posts = Post.objects.order_by('author')
     elif desc=='all':
         date_posts = Post.objects.order_by('title')
+    elif desc=='likes':
+        date_posts = Post.objects.annotate(like_count=Count('likes')).order_by('-like_count')
+
 
 
 
