@@ -51,18 +51,18 @@
     <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
         <ul id="nav" class="navbar-nav ms-auto">
             <li class="nav-item">
-                <a href="{% url 'home' %}" class="active" aria-label="Toggle navigation">Home</a>
+                <a href="{% url 'home' %}" class="active" aria-label="Toggle navigation">Inicio</a>
             </li>
             <li class="nav-item">
                 <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
                     data-bs-target="#submenu-1-1" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">Account</a>
+                    aria-label="Toggle navigation">Registro</a>
                 <ul class="sub-menu collapse" id="submenu-1-1">
                     {% if user.is_authenticated %}
-                    <li class="nav-item"><a href="{% url 'logout' %}">logout</a></li>
+                    <li class="nav-item"><a href="{% url 'logout' %}">Cerrar sesión</a></li>
                     {% else %}
-                    <li class="nav-item"><a href="{% url 'login' %}">Sign In</a></li>
-                    <li class="nav-item"><a href="{% url 'register' %}">Sign Up</a></li>
+                    <li class="nav-item"><a href="{% url 'login' %}">Iniciar sesión</a></li>
+                    <li class="nav-item"><a href="{% url 'register' %}">Crear cuenta</a></li>
                     {% endif %}
                 </ul>
             </li>
@@ -72,7 +72,8 @@
                 data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">Edit Blog</a>
                 <ul class="sub-menu collapse" id="submenu-1-2">
-                    <li class="nav-item"><a href="{% url 'add_post' %}">Add Post</a>
+                    <li class="nav-item"><a href="{% url 'add_post' %}">
+                        Agregar publicación</a>
                     </li>
                 </ul>
                 {% endif %}
@@ -82,9 +83,9 @@
                     data-bs-target="#submenu-1-1" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">Posts</a>
                 <ul class="sub-menu collapse" id="submenu-1-1">
-                    <li class="nav-item"><a href='filtered-posts/all'>All</a></li>
-                    <li class="nav-item"><a href='filtered-posts/all'>Hottest</a></li>
-                    <li class="nav-item"><a href='filtered-posts/desc'>Newest</a></li>
+                    <li class="nav-item"><a href='filtered-posts/all'>Todo</a></li>
+                    <li class="nav-item"><a href='filtered-posts/all'>Más comentados</a></li>
+                    <li class="nav-item"><a href='filtered-posts/desc'>Los más nuevos</a></li>
                 </ul>
             </li>
         </ul>
@@ -92,7 +93,7 @@
     <!--login-->
     {% if user.is_authenticated %}
     <div class="button">
-        <a href="{% url 'logout' %}" class="btn login">Logout</a>
+        <a href="{% url 'logout' %}" class="btn login">Cerrar sesión</a>
     </div>
     {% else %}
     <div class="button">
@@ -130,10 +131,6 @@
                     <p class="wow fadeInUp" data-wow-delay=".6s">Creando conciencia desde la información<br> 
                     </p>
                     <!--BUTTON BUSQUEDA cambiar x barra busqueda-->
-
-                    <div class="button wow fadeInUp" data-wow-delay=".8s">
-                        <a href="about-us.html " class="btn mi-btn">Search Posts</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -265,7 +262,7 @@
     </div>
     <div class="content">
     <h4>Luketich Agustín 
-    <span>back-end</span>
+    <span>Back-end</span>
     </h4>
     <ul class="social">
     <li><a href="https://www.facebook.com/agustin.luketich"><i class="lni lni-facebook-filled"></i></a></li>
@@ -286,7 +283,7 @@
     </div>
     <div class="content">
     <h4>Bacik Tatiana
-    <span>Designer<br>front-end</br></span>
+    <span>Designer<br>Front-end</br></span>
     </h4>
     <ul class="social">
     <li><a href="https://www.facebook.com/tatiana.bacik"><i class="lni lni-facebook-filled"></i></a></li>
@@ -306,7 +303,7 @@
     </div>
     <div class="content">
     <h4>Guerra Cristian
-    <span>front-end</span>
+    <span>Back-end<br>Front-end</br></span>
     </h4>
     <ul class="social">
     <li><a href="https://www.facebook.com/cristiannguerra9/"><i class="lni lni-facebook-filled"></i></a></li>
@@ -375,20 +372,6 @@
                                 <li><a href="https://www.youtube.com/channel/UCmtreTuMuEMjFsdyWwYxw8A"><i
                                             class="lni lni-youtube"></i></a></li>
                             </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                        <div class="single-footer newsletter">
-                            <h3>Suscribete</h3>
-                            <p>Suscríbete y recibe los últimos posteos
-                            </p>
-                            <form action="#" method="get" target="_blank" class="newsletter-form">
-                                <input name="EMAIL" placeholder="Email address" type="email">
-                                <div class="button">
-                                    <button class="sub-btn"><i class="lni lni-envelope"></i>
-                                    </button>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
