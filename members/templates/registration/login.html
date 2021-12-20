@@ -42,7 +42,7 @@
   <form method='POST'>
     {% csrf_token %}
     <img class="mb-4" src="{% static 'images/logo/think_green_logo.svg' %}">
-    <h1 class="h3 mb-3 fw-normal cambio-color">Welcome</h1>
+    <h1 class="h3 mb-3 fw-normal cambio-color">Bienvenido</h1>
 
     <div class="form-floating">
       <input type="text" class="form-control" id={{form.username}}>
@@ -55,7 +55,7 @@
 
     <div class="checkbox mb-3 cambio-color">
       <label>
-        <input type="checkbox" value="remember-me"> Remember me
+        <input type="checkbox" value="remember-me"> Recuérdame
       </label>
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>

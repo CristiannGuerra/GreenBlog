@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<title>Think Green | Inicio</title>
+<title> {{post.title}} | Think Green </title>
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.svg' %}" />
@@ -114,12 +114,18 @@
 </header>
 
 
-
-<h1> Delete... </h1><br>
+<br>
+<br>
+<h2> Estas por eliminar: </h2>
+<br>
+<br>
     <div class="mb-3">
         <form method='POST'>
             {% csrf_token %}
-            <h3>{{post.title}}</h3><br>
+            <h4>{{post.title}}</h4>
+            <br>
+            <br>
+        <p>Desea realizar esta accion?</p>
         <button class="btn btn-secondary">Delete</button>
     </div>
 <br>
