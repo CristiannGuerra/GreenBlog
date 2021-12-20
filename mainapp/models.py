@@ -15,6 +15,10 @@ class Post(models.Model):
     preview = RichTextField(blank=True, null=True) # O podemos usar un filtro en el html e.g. {{post.body|slice:'125'}}
     post_date = models.DateTimeField(auto_now_add=True)
     category = models.CharField(max_length=255)
+    likes = models.ManyToManyField(User, related_name= 'blog_posts')
+
+    def total_likes(self):
+        return self.likes.count()
 
     def __str__(self):
         return self.title + ' | ' + str(self.author) #Para mostrar el titulo y el autor
