@@ -145,7 +145,7 @@
         
         {% for post in category_posts %}
         <div class="single-blog-grid">
-            <div class="blog-img">
+            <div class="blog-img" style='height: 15%; width: 100%; object-fit: contain' > 
                 <a href="{% url 'article' post.pk %}">
                     <img src="{{post.header_image.url}}" alt="#">
                 </a>
@@ -165,9 +165,6 @@
                 <a href="{% url 'delete_post' post.pk %}"><b>Delete</b></a>
                 {% endif %}
                 <p> {{post.preview|safe}} </p>
-                <div class="button">
-                    <a href="{% url 'article' post.pk %}" class="btn">Read More</a>
-                </div>
             </div>
         </div>
         
