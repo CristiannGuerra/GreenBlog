@@ -192,53 +192,53 @@
 
 
 <section class="blog-section section cambiar-fondo">
-<div class="container">
-<div class="row">
-<div class="col-12">
-<div class="section-title">
-<h3 class="wow zoomIn" data-wow-delay=".2s">Think Green</h3>
-<h2 class="wow fadeInUp cam-color" data-wow-delay=".4s">Ultimos Posteos</h2>
-<p class="wow fadeInUp" data-wow-delay=".6s">Descubrí los Posts de mayor interes
-</p>
-</div>
-</div>
-</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h3 class="wow zoomIn" data-wow-delay=".2s">Think Green</h3>
+                    <h2 class="wow fadeInUp cam-color" data-wow-delay=".4s">Ultimos Posteos</h2>
+                    <p class="wow fadeInUp" data-wow-delay=".6s">Descubrí los Posts de mayor interes
+                    </p>
+                </div>
+            </div>
+        </div>
 
-<div class="row">
-{% for post in object_list %}
-<div class="col-lg-4 col-md-6 col-12 wow fadeInUp marginTop" data-wow-delay=".4s">
-
-<div class="single-blog-grid">
-<div class="blog-img">
-<a href="{% url 'article' post.pk %}">
-<img src="{{post.header_image.url}}" alt="#">
-</a>
-</div>
-<div class="blog-content cambio-gris">
-<div class="meta-info">
-<span class="date" ><i class="lni lni-timer"></i> {{post.post_date|date:'M d, Y'}}
-</span>
-<span class="author" ><i class="lni lni-user"></i> {{post.author}}
-</span>
-</div>
-<h4>
-<a href="{% url 'article' post.pk %}"><b> {{post.title}} </b></a>
-</h4>
-{% if user.is_superuser %}
+        <div class="row">
+            {% for post in object_list %}
+            <div class="col-lg-4 col-md-6 col-12 marginTop">
+                <div class="single-blog-grid">
+                    <div class="blog-img"> 
+                        <a href="{% url 'article' post.pk %}">
+                            <img src="{{post.header_image.url}}" alt="#">
+                        </a>
+                    </div>
+                    <div class="blog-content cambio-gris">
+                        <div class="meta-info">
+                            <span class="date"><i class="lni lni-timer"></i> {{post.post_date|date:'M d, Y'}}
+                            </span>
+                            <span class="author"><i class="lni lni-user"></i> {{post.author}}
+                            </span>
+                        </div>
+                        <h4>
+                            <a href="{% url 'article' post.pk %}"><b> {{post.title}} </b></a>
+                        </h4>
+                        {% if user.is_superuser %}
+                        <a href="{% url 'edit_post' post.pk %}"><b>Edit</b></a> |
 <a href="{% url 'edit_post' post.pk %}"><b>Edit</b></a> | 
-<a href="{% url 'delete_post' post.pk %}"><b>Delete</b></a>
-{% endif %}
-<p> {{post.preview|safe|slice:"120"}} </p>
-<div class="button">
-<a href="{% url 'article' post.pk %}" class="btn">Read More</a>
-</div>
-</div>
-</div>
-</div>
-{% endfor %}
-</div>
-</div>
-</div>
+                        <a href="{% url 'edit_post' post.pk %}"><b>Edit</b></a> |
+                        <a href="{% url 'delete_post' post.pk %}"><b>Delete</b></a>
+                        {% endif %}
+                        <p> {{post.preview|safe|slice:"120"}} </p>
+                        <div class="button">
+                            <a href="{% url 'article' post.pk %}" class="btn">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </section>
 
 
